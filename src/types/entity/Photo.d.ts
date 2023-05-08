@@ -16,4 +16,7 @@ export interface IPhoto {
     small: string;
     thumb: string;
   };
+  user: {
+    name: string;
+  };
 }

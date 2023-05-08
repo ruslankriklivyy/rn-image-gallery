@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import HomeScreen from '../screens/Home';
+import PhotoScreen from '../screens/Photo';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,6 +15,17 @@ const RootNavigator = () => {
         <Tab.Screen
           name="Photos"
           component={HomeScreen}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({color, size}) => (
+              <MaterialIcons name="movie-filter" color={color} size={size} />
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Photo"
+          component={PhotoScreen}
           options={{
             headerShown: false,
             tabBarIcon: ({color, size}) => (
