@@ -1,39 +1,33 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import HomeScreen from '../screens/Home';
 import PhotoScreen from '../screens/Photo';
+import navigationLinking from '../config/navigation-linking';
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen
+    <NavigationContainer linking={navigationLinking}>
+      <Stack.Navigator>
+        <Stack.Screen
           name="Photos"
           component={HomeScreen}
           options={{
             headerShown: false,
-            tabBarIcon: ({color, size}) => (
-              <MaterialIcons name="movie-filter" color={color} size={size} />
-            ),
           }}
         />
 
-        <Tab.Screen
+        <Stack.Screen
           name="Photo"
           component={PhotoScreen}
           options={{
             headerShown: false,
-            tabBarIcon: ({color, size}) => (
-              <MaterialIcons name="movie-filter" color={color} size={size} />
-            ),
           }}
         />
-      </Tab.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
